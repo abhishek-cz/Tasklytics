@@ -1,0 +1,899 @@
+/* ==========================================================
+   TASKLYTICS UI FRAMEWORK v1.0
+   Part 1 - Foundation
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/* ==========================================================
+   ROOT VARIABLES
+   ========================================================== */
+
+:root{
+
+    --bg:#0B0F19;
+
+    --card:#151A23;
+
+    --card-hover:#1A2130;
+
+    --border:#232A36;
+
+    --primary:#4F8CFF;
+
+    --secondary:#7C5CFF;
+
+    --accent:#FF9D42;
+
+    --success:#22C55E;
+
+    --danger:#EF4444;
+
+    --text:#F8FAFC;
+
+    --text-secondary:#9CA3AF;
+
+    --radius:14px;
+
+    --shadow:
+        0 12px 40px rgba(0,0,0,.35);
+
+}
+
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Inter',sans-serif;
+
+}
+
+
+/* ==========================================================
+   PAGE
+   ========================================================== */
+
+html,
+body{
+
+    background:var(--bg);
+
+}
+
+
+.stApp{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+
+/* ==========================================================
+   HIDE STREAMLIT DEFAULT UI
+   ========================================================== */
+
+#MainMenu{
+
+    display:none;
+
+}
+
+header{
+
+    display:none;
+
+}
+
+footer{
+
+    display:none;
+
+}
+
+[data-testid="stToolbar"]{
+
+    display:none;
+
+}
+
+[data-testid="stDecoration"]{
+
+    display:none;
+
+}
+
+[data-testid="stStatusWidget"]{
+
+    display:none;
+
+}
+
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+
+[data-testid="stSidebar"]{
+
+    background:#11151F;
+
+    border-right:1px solid var(--border);
+
+}
+
+[data-testid="stSidebarNav"]{
+
+    padding-top:25px;
+
+}
+
+
+/* ==========================================================
+   MAIN CONTAINER
+   ========================================================== */
+
+.block-container{
+
+    max-width:1280px;
+
+    padding-top:40px;
+
+    padding-left:50px;
+
+    padding-right:50px;
+
+}
+
+
+/* ==========================================================
+   TYPOGRAPHY
+   ========================================================== */
+
+h1{
+
+    color:var(--text);
+
+    font-size:56px;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+}
+
+h2{
+
+    color:var(--text);
+
+    font-size:32px;
+
+    font-weight:700;
+
+}
+
+h3{
+
+    color:var(--text);
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+p{
+
+    color:var(--text-secondary);
+
+    line-height:1.7;
+
+}
+
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+
+a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+a:hover{
+
+    color:white;
+
+}
+
+
+/* ==========================================================
+   DIVIDER
+   ========================================================== */
+
+hr{
+
+    border:none;
+
+    border-top:1px solid var(--border);
+
+    margin:30px 0;
+
+}
+
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:var(--bg);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2D3646;
+
+    border-radius:100px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary);
+
+}
+
+
+/* ==========================================================
+   ANIMATIONS
+   ========================================================== */
+
+*{
+
+    transition:
+        background .25s ease,
+        border .25s ease,
+        color .25s ease,
+        transform .25s ease;
+
+}
+
+
+/* ==========================================================
+   UTILITIES
+   ========================================================== */
+
+.glass{
+
+    background:rgba(255,255,255,.03);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+.center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+/* ==========================================================
+   AUTHENTICATION LAYOUT
+========================================================== */
+
+.auth-wrapper{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.auth-card{
+
+    width:100%;
+
+    max-width:500px;
+
+    background:rgba(21,26,35,.88);
+
+    backdrop-filter:blur(24px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:var(--radius);
+
+    padding:42px;
+
+    box-shadow:var(--shadow);
+
+    animation:fadeUp .6s ease;
+
+}
+
+.auth-logo{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:8px;
+
+}
+
+.auth-subtitle{
+
+    text-align:center;
+
+    color:var(--text-secondary);
+
+    margin-bottom:40px;
+
+    font-size:15px;
+
+}
+
+
+/* ==========================================================
+   FORM LABELS
+========================================================== */
+
+.form-label{
+
+    display:block;
+
+    color:var(--text);
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+    margin-top:18px;
+
+}
+
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.stTextInput{
+
+    margin-bottom:12px;
+
+}
+
+.stTextInput input{
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    padding:14px 18px;
+
+    font-size:15px;
+
+    transition:all .25s ease;
+
+}
+
+.stTextInput input:hover{
+
+    border-color:#4F8CFF88;
+
+}
+
+.stTextInput input:focus{
+
+    border:1px solid var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(79,140,255,.18);
+
+}
+
+
+/* ==========================================================
+   PASSWORD
+========================================================== */
+
+input[type="password"]{
+
+    letter-spacing:2px;
+
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.stButton > button{
+
+    width:100%;
+
+    height:56px !important;
+
+    border:none !important;
+
+    border-radius:18px !important;
+
+    background:linear-gradient(
+        135deg,
+        #4F8CFF,
+        #7C5CFF
+    ) !important;
+
+    color:#FFFFFF !important;
+
+    font-size:16px !important;
+
+    font-weight:700 !important;
+
+    letter-spacing:.4px;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,.25);
+
+    opacity:1 !important;
+
+}
+
+.stButton > button:hover{
+
+    color:#FFFFFF !important;
+
+    transform:translateY(-3px);
+
+    filter:brightness(1.08);
+
+    box-shadow:
+        0 18px 40px rgba(79,140,255,.35);
+
+}
+
+.stButton>button:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* ==========================================================
+   DISABLED BUTTON
+========================================================== */
+
+.stButton>button:disabled{
+
+    background:#2B3444;
+
+    color:#8B93A3;
+
+    box-shadow:none;
+
+    cursor:not-allowed;
+
+}
+
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.auth-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    color:var(--text-secondary);
+
+    margin:28px 0;
+
+}
+
+.auth-divider::before,
+
+.auth-divider::after{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:var(--border);
+
+}
+
+
+/* ==========================================================
+   LINKS
+========================================================== */
+
+.auth-link{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    font-size:15px;
+
+}
+
+.auth-link a{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.auth-link a:hover{
+
+    color:white;
+
+}
+
+
+/* ==========================================================
+   ALERTS
+========================================================== */
+
+.stAlert{
+
+    border-radius:14px;
+
+    border:none;
+
+}
+
+
+/* ==========================================================
+   PROGRESS BAR
+========================================================== */
+
+.stProgress>div>div{
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+}
+
+
+/* ==========================================================
+   FORM ANIMATION
+========================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ==========================================================
+   TASKLYTICS POLISH v1.0
+   ========================================================== */
+
+
+/* ---------- Background ---------- */
+
+.stApp{
+
+    background:
+        radial-gradient(circle at top left,
+        rgba(79,140,255,.08) 0%,
+        transparent 35%),
+
+        radial-gradient(circle at bottom right,
+        rgba(124,92,255,.08) 0%,
+        transparent 35%),
+
+        #0B0F19;
+
+}
+
+
+/* ---------- Authentication Card ---------- */
+
+[data-testid="stVerticalBlockBorderWrapper"]{
+
+    background:rgba(21,26,35,.82);
+
+    backdrop-filter:blur(22px);
+
+    -webkit-backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.45);
+
+    padding:26px;
+
+    transition:.30s ease;
+
+}
+
+[data-testid="stVerticalBlockBorderWrapper"]:hover{
+
+    transform:translateY(-4px);
+
+    border-color:rgba(79,140,255,.25);
+
+    box-shadow:
+        0 26px 60px rgba(0,0,0,.55);
+
+}
+
+
+/* ---------- Buttons ---------- */
+
+.stButton>button{
+
+    height:56px !important;
+
+    border-radius:18px !important;
+
+    font-size:16px !important;
+
+    font-weight:700 !important;
+
+    letter-spacing:.3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4F8CFF,
+            #7C5CFF
+        ) !important;
+
+    transition:
+        all .25s ease !important;
+
+}
+
+.stButton>button:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 16px 40px rgba(79,140,255,.35);
+
+    filter:brightness(1.08);
+
+}
+
+
+/* ---------- Inputs ---------- */
+
+.stTextInput input{
+
+    height:54px !important;
+
+    border-radius:16px !important;
+
+    padding-left:18px !important;
+
+    font-size:15px !important;
+
+    border:1px solid #2B3445 !important;
+
+    transition:.25s ease;
+
+}
+
+.stTextInput input:hover{
+
+    border-color:#4F8CFF66 !important;
+
+}
+
+.stTextInput input:focus{
+
+    border-color:#4F8CFF !important;
+
+    box-shadow:
+        0 0 0 4px rgba(79,140,255,.18) !important;
+
+}
+
+
+/* ---------- Placeholder ---------- */
+
+.stTextInput input::placeholder{
+
+    color:#7D8796;
+
+}
+
+
+/* ---------- Labels ---------- */
+
+label{
+
+    font-size:14px !important;
+
+    font-weight:600 !important;
+
+}
+
+
+/* ---------- Divider ---------- */
+
+hr{
+
+    opacity:.18;
+
+}
+
+
+/* ---------- Success ---------- */
+
+[data-baseweb="notification"]{
+
+    border-radius:14px;
+
+}
+
+
+/* ---------- Progress ---------- */
+
+.stProgress>div>div{
+
+    border-radius:999px;
+
+}
+
+
+/* ---------- Logo ---------- */
+
+h1{
+
+    text-shadow:
+        0 0 18px rgba(79,140,255,.18);
+
+}
+
+
+/* ---------- Page Animation ---------- */
+
+.block-container{
+
+    animation:fadePage .45s ease;
+
+}
+
+@keyframes fadePage{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(16px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ---------- Selection ---------- */
+
+::selection{
+
+    background:#4F8CFF;
+
+    color:white;
+
+}
+
+
+/* ---------- Smooth ---------- */
+
+button,
+input,
+textarea{
+
+    transition:.25s ease;
+
+}
+.stButton button p{
+
+    color:#FFFFFF !important;
+
+    font-weight:700 !important;
+
+    opacity:1 !important;
+
+}
+.stButton button span{
+
+    color:#FFFFFF !important;
+
+}
